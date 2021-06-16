@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-outer.get('/', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
       const postData = await Post.findAll({
 attributes: ['id','title','content','created_at'],
@@ -77,7 +77,7 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-  outer.put('/:id', withAuth, async (req, res) => {
+  router.put('/:id', withAuth, async (req, res) => {
     try {
       const postData = await Post.update({
           title: req.body.title,

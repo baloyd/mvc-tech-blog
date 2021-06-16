@@ -8,7 +8,7 @@ const commData = [
 
     },
     {
-        comment_text: 'alot of my problems with sequelize come from the fact that im using sequlize to define my models. I would prefer to use plain javascript objects to define my models without sequelize. Ideally I could follow a more classic object-oriented approach where my models could extend or implement an orm that takes care of relaying data back and forth between the databasr and client and nothing else.',
+        comment_text: 'Alot of my problems with sequelize come from the fact that im using sequlize to define my models. I would prefer to use plain javascript objects to define my models without sequelize. Ideally I could follow a more classic object-oriented approach where my models could extend or implement an orm that takes care of relaying data back and forth between the databasr and client and nothing else.',
         user_id: '4',
         post_id: '2',
 
