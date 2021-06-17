@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const sequelize = require('../config/connection');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -31,6 +32,7 @@ router.get('/', withAuth, async (req, res) => {
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
