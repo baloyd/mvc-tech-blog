@@ -33,7 +33,7 @@ res.status(500).json(err);
 
 router.get('/:id', async (req, res) => {
     try {
-      const postData = await Post.findByPk({
+      const postData = await Post.findOne({
           where: { id: req.params.id 
         },
         attributes: ['id','content','title','created_at'],
@@ -53,19 +53,20 @@ router.get('/:id', async (req, res) => {
       });
   
       if (!postData) {
-        res.status(404).json({ message: 'No category found with that id!' });
+        res.status(404).json({ message: 'No post found with that id!' });
         return;
       }
   
       res.status(200).json(postData);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });
 
   router.post('/', withAuth, async (req, res) => {
     try {
-      const postData = await Category.create({
+      const postData = await Post.create({
           title: req.body.title,
           content: req.body.content,
           user_id: req.session.user_id
