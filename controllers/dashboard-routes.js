@@ -9,8 +9,12 @@ router.get('/', withAuth, async (req, res) => {
         where: {
             user_id: req.session.user_id
         },
+        attributes: [
+          'id', 'title', 'content', 'created_at'
+        ],
         include: [{
             model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
             model: User,
             attributes: ['username']
@@ -28,7 +32,7 @@ router.get('/', withAuth, async (req, res) => {
   
       res.render('dashboard', {
         posts,
-        logged_in: req.session.logged_in,
+        loggedIn: req.session.loggedIn,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -63,7 +67,7 @@ router.get('/', withAuth, async (req, res) => {
   
       res.render('edit-post', {
         post,
-        logged_in: req.session.logged_in,
+        loggedIn: req.session.loggedIn,
       });
     } catch (err) {
       res.status(500).json(err);
