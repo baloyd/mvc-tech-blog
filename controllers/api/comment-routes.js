@@ -2,13 +2,14 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/',withAuth, async (req, res) => {
     try {
       const comData = await Comment.findAll({
       
       });
       res.status(200).json(comData);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });
