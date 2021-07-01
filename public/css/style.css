@@ -55,6 +55,7 @@ p {
   font-size: 1.2rem;
 }
 
+
 .btn {
   font-size: 1.3rem;
   text-decoration: none;
@@ -190,6 +191,12 @@ h4 {
   color: var(--dark);
 }
 
+#logout {
+  background: none;
+  border: none;
+  color: rgb(61, 142, 179)
+}
+
 .nav {
   padding: 10px;
   line-height: 1.25;
@@ -261,6 +268,10 @@ footer {
 
 .justify-flex-end {
   justify-content: flex-end;
+}
+
+.justify-space-evenly {
+  justify-content:space-evenly;
 }
 
 .justify-center {
